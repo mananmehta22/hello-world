@@ -1,24 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import VegetableList from './components/VegetableList.js'
+import React,{useState} from 'react'
 
 function App() {
+  const vegetableList = [
+    {
+      price: 20,
+      name: "Potato",
+      quantity: 0 
+    },
+    {
+      price: 35,
+      name: "Tomato",
+      quantity: 0
+    }
+  ]
+
+  let [vegetablesList , setVegetableList] = useState(VegetableList)
+
+  const incrementQuantity = (index) => {
+    let newVegetableList = [...vegetablesList]
+    newVegetableList[index].quantity++
+    setVegetableList(newVegetableList);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World
-        </a>
-      </header>
-    </div>
+   <>
+   <Navbar/>
+   <main className='container mt-5'>
+   <VegetableList vegetableList={vegetableList} incrementQuantity={this.incrementQuantity}/>
+   </main>
+  </>
   );
 }
 
