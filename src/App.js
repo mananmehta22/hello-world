@@ -1,11 +1,12 @@
+import React,{ useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import VegetableList from './components/VegetableList.js'
-import React,{useState} from 'react'
+
 
 function App() {
-  const vegetableList = [
+  const vegetables = [
     {
       price: 20,
       name: "Potato",
@@ -18,7 +19,7 @@ function App() {
     }
   ]
 
-  let [vegetablesList , setVegetableList] = useState(VegetableList)
+  let [vegetablesList , setVegetableList] = useState(vegetables)
 
   const incrementQuantity = (index) => {
     let newVegetableList = [...vegetablesList]
@@ -31,7 +32,9 @@ function App() {
    <>
    <Navbar/>
    <main className='container mt-5'>
-   <VegetableList vegetableList={vegetableList} incrementQuantity={this.incrementQuantity}/>
+   <VegetableList vegetablesList={vegetablesList} 
+   incrementQuantity={incrementQuantity}
+   />
    </main>
   </>
   );
