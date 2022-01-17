@@ -4,11 +4,12 @@ import Product from './Product.js'
 
 export default function VegetableList(props) {
     return (
-        props.vegetableList.map((vegetable, i)=>{
+        props.vegetablesList.map((vegetable, i)=>{
             return <Product 
             vegetable={vegetable} 
             key={i} 
             incrementQuantity={props.incrementQuantity} 
+            decrementQuantity={props.decrementQuantity}
             index={i}/>
         })
     )
